@@ -2,6 +2,9 @@
   hosts: 127.0.0.1
   connection: local
 
+  vars:
+    is_ubuntu_focal: "{{ ansible_distribution_release == 'focal' }}"
+
   tasks:
     - name: Install global tools
       command: dotnet tool install -g {{ item }}
@@ -14,3 +17,4 @@
         - dotnet-outdated
         - dotnet-reportgenerator-globaltool
         - dotnet-retire
+      when: not is_ubuntu_focal

@@ -3,6 +3,7 @@
   connection: local
 
   vars:
+    brave_distribution_release: "{{ 'eoan' if ansible_distribution_release == 'focal' else ansible_distribution_release }}"
     is_mac: "{{ ansible_distribution == 'MacOSX' }}"
 
   tasks:
@@ -17,8 +18,8 @@
     - name: Add Brave APT package repository
       become: yes
       apt_repository:
-        repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ {{ ansible_distribution_release }} main
-        filename: brave-browser-release-{{ ansible_distribution_release }}
+        repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ {{ brave_distribution_release }} main
+        filename: brave-browser-release-{{ brave_distribution_release }}
         update_cache: no
       register: apt_repository
       when: not is_mac and not is_wsl
