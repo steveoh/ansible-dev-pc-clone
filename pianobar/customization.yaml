@@ -13,3 +13,10 @@
       copy:
         src: config
         dest: ~/.config/pianobar/config
+
+    - name: Add useful pianobar aliases
+      blockinfile:
+        path: ~/.bashrc
+        marker: "### {mark} Ansible managed: pianobar customizations"
+        block: |
+          alias p='pianobar 2>/dev/null'
