@@ -8,6 +8,32 @@
       "*.yaml": "ansible"
     },
     "cSpell.words": [
-      "ansible"
+      "ansible",
+      "arcgis",
+      "azuretools",
+      "esbenp",
+      "globaltool",
+      "liveshare",
+      "nuget",
+      "omnisharp",
+      "reportgenerator",
+      "yapf",
+      "pylint",
+      "envs",
+      "conda",
+      "agrc",
+      "autofetch",
+      "vsicons",
+      "stylint",
+      "gitlens",
+      "pycodestyle",
+      "bierner",
+      "eamodio",
+      "fabiospampinato",
+      "vmsynkov",
+      "dbaeumer",
+      "kohler",
+      "cmder",
+      "ariake"
     ]
 }
