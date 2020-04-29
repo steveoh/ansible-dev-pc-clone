@@ -8,8 +8,4 @@
         name: "{{ item }}"
       loop:
         - git
-        - git-gui
-        - git-lfs
         - gpg
-        - gnu-sed
-        - ripgrep
