@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Install VS Code Extention
+    - name: Install VS Code Extension
       command: code --install-extension ms-azuretools.vscode-docker
       args:
         creates: ~/.vscode/extensions/ms-azuretools.vscode-docker-*/package.json
