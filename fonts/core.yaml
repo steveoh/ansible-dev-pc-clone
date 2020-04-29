@@ -1,0 +1,13 @@
+- name: fonts
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Install Font Homebrew packages
+      homebrew_cask:
+        name: "{{ item }}"
+      loop:
+        - font-saucecodepro-nerd-font
+        - font-firacode-nerd-font
+        - font-hasklug-nerd-font
+        - font-iosevka-nerd-font
