@@ -8,10 +8,8 @@
         path: ~/.bashrc
         marker: "### {mark} Ansible managed: Docker customization"
         block: |
-          docker-clean() {
-            _containers=$(docker ps --quiet --filter 'status=exited')
-            [[ -z ${_containers// } ]] || docker rm $_containers
-
-            _images=$(docker images --all --quiet --filter 'dangling=true')
-            [[ -z ${_images// } ]] || docker rmi $_images
-          }
+          alias dc='docker-compose'
+          alias docker-rmi='docker images -aq -f dangling=true | xargs docker rmi'
+          alias docker-rmc='docker ps -aq | xargs docker rm'
+          alias docker-kill='docker ps -aq | xargs docker kill'
+          alias docker-update-images='docker images |grep -v REPOSITORY|awk '{print $1}'|xargs -L1 docker pull'
