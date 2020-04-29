@@ -5,5 +5,5 @@
   tasks:
     - name: Set global configuration
       copy:
-        src: gitconfig
+        src: config
         dest: ~/.gitconfig
