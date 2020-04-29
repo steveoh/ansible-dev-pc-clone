@@ -21,15 +21,6 @@
 # Ansible
 - import_playbook: ansible/vscode.yaml
 
-# Azure
-- import_playbook: azure/az.yaml
-- import_playbook: azure/azshell.yaml
-- import_playbook: azure/storage-explorer.yaml
-- import_playbook: azure/vscode.yaml
-
-# Broot
-- import_playbook: broot/core.yaml
-
 # Docker
 - import_playbook: docker/core.yaml
 - import_playbook: docker/vscode.yaml
@@ -38,16 +29,9 @@
 - import_playbook: dotnet/core.yaml
 - import_playbook: dotnet/vscode.yaml
 
-# Flameshot
-- import_playbook: flameshot/core.yaml
-
 # git
 - import_playbook: git/core.yaml
 - import_playbook: git/vscode.yaml
-
-# golang
-- import_playbook: golang/core.yaml
-- import_playbook: golang/vscode.yaml
 
 # Kubernetes
 - import_playbook: kubectl/core.yaml
@@ -67,10 +51,6 @@
 # Postman
 - import_playbook: postman/core.yaml
 
-# PowerShell Core
-- import_playbook: powershell-core/core.yaml
-- import_playbook: powershell-core/vscode.yaml
-
 # Python
 - import_playbook: python/core.yaml
 - import_playbook: python/vscode.yaml
@@ -81,12 +61,6 @@
 
 ##### Applications (free)
 
-# Alacritty (high performance terminal application)
-- import_playbook: alacritty/core.yaml
-
-# Brave
-- import_playbook: brave/core.yaml
-
 # Firefox
 - import_playbook: firefox/core.yaml
 
@@ -96,34 +70,7 @@
 # Prettier version of ping w/ graphs
 - import_playbook: prettyping/core.yaml
 
-# RDP/X/VNC/SSH client
-- import_playbook: remmina/core.yaml
-
 # Slack desktop application
 - import_playbook: slack/core.yaml
 
-# Microsoft Teams
-- import_playbook: teams/core.yaml
-
-# VideoLan Client (primarily for codecs)
-- import_playbook: vlc/core.yaml
-
-# Zoom
-- import_playbook: zoom/core.yaml
-
 ##### Applications (commercial license required)
-
-# Beyond Compare 4
-- import_playbook: bc4/core.yaml
-
-# Google Backup and Sync (macOS) / Insync (Linux)
-- import_playbook: google-backup/core.yaml
-
-# JetBrains Toolbox (used to install/updated JetBrains tools)
-- import_playbook: jetbrains/core.yaml
-
-# Spotify
-- import_playbook: spotify/core.yaml
-
-# Sublime Text and Sublime Merge
-- import_playbook: sublime/core.yaml
