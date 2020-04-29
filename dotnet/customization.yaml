@@ -13,4 +13,6 @@
         - dotnet-format
         - dotnet-outdated
         - dotnet-reportgenerator-globaltool
-        - dotnet-retire
+        - dotnet-nuget-gc
+        - dotnet-ef
+        - dotnet-core-uninstall
