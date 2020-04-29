@@ -2,68 +2,7 @@
   hosts: 127.0.0.1
   connection: local
 
-  vars:
-    is_debian_stretch: "{{ ansible_distribution_release == 'stretch' }}"
-    is_mac: "{{ ansible_distribution == 'MacOSX' }}"
-    is_ubuntu: "{{ ansible_distribution == 'Ubuntu' }}"
-    is_ubuntu_bionic: "{{ ansible_distribution_release == 'bionic' }}"
-    RIPGREP_VERSION: "12.0.1"
-
   tasks:
-    # Linux
-
-    - name: Add Git APT package repository (Ubuntu)
-      become: yes
-      apt_repository:
-        repo: ppa:git-core/ppa
-        filename: git
-        update_cache: no
-      register: apt_repository_1
-      when: is_ubuntu
-
-    - name: Add Backports repository (Debian Stretch)
-      become: yes
-      apt_repository:
-        repo: deb http://deb.debian.org/debian stretch-backports main
-        filename: backports
-        update_cache: no
-      register: apt_repository_2
-      when: is_debian_stretch
-
-    - name: Update APT package list
-      become: yes
-      apt:
-        update_cache: yes
-      when: apt_repository_1.changed or apt_repository_2.changed
-      register: apt_update
-      retries: 5
-      until: apt_update is success
-
-    - name: Install APT package
-      become: yes
-      apt:
-        package: "{{ item }}"
-      loop:
-        - git
-        - git-gui
-        - git-lfs
-        - gitk
-      when: not is_mac
-
-    - name: Install ripgrep (Ubuntu 18.04 / Debian Stretch)
-      become: yes
-      apt:
-        deb: https://github.com/BurntSushi/ripgrep/releases/download/{{ RIPGREP_VERSION }}/ripgrep_{{ RIPGREP_VERSION }}_amd64.deb
-      when: is_ubuntu_bionic or is_debian_stretch
-
-    - name: Install ripgrep (other Linux)
-      become: yes
-      apt:
-        package: ripgrep
-      when: not is_mac and not is_ubuntu_bionic and not is_debian_stretch
-
-    # macOS
-
     - name: Install Homebrew packages
       homebrew:
         name: "{{ item }}"
@@ -74,4 +13,3 @@
         - gpg
         - gnu-sed
         - ripgrep
-      when: is_mac

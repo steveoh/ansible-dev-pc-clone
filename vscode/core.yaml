@@ -2,67 +2,7 @@
   hosts: 127.0.0.1
   connection: local
 
-  vars:
-    is_mac: "{{ ansible_distribution == 'MacOSX' }}"
-
   tasks:
-    - set_fact: is_wsl={{ not is_mac and lookup('file', '/proc/version') is regex('(M|m)icrosoft') }}
-
-    # Linux
-
-    - name: Add Microsoft APT package key
-      become: yes
-      apt_key:
-        url: https://packages.microsoft.com/keys/microsoft.asc
-      when: not is_wsl and not is_mac
-
-    - name: Add VS Code APT package repository
-      become: yes
-      apt_repository:
-        repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
-        filename: vscode
-        update_cache: no
-      register: apt_repository
-      when: not is_wsl and not is_mac
-
-    - name: Update APT package list
-      become: yes
-      apt:
-        update_cache: yes
-      when: apt_repository.changed
-      register: apt_update
-      retries: 5
-      until: apt_update is success
-
-    - name: Install VS Code (Linux)
-      become: yes
-      apt:
-        package: code
-      when: not is_wsl and not is_mac
-
-    - name: Create shortcut to Windows ~/.vscode (WSL)
-      file:
-        path: ~/.vscode
-        src: /mnt/c/Users/{{ lookup('ENV', 'USER' )}}/.vscode
-        state: link
-      when: is_wsl
-
-    - name: Ensure ~/.config folder exists (WSL)
-      file:
-        path: ~/.config
-        state: directory
-      when: is_wsl
-
-    - name: Create shortcut to Windows ~/.config/Code (WSL)
-      file:
-        path: ~/.config/Code
-        src: /mnt/c/Users/{{ lookup('ENV', 'USER' )}}/AppData/Roaming/Code
-        state: link
-      when: is_wsl
-
-    # macOS
-
     - name: Install VS Code (macOS)
       homebrew_cask:
         name: visual-studio-code
-      when: is_mac

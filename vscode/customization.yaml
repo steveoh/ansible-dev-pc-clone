@@ -2,9 +2,6 @@
   hosts: 127.0.0.1
   connection: local
 
-  vars:
-    is_mac: "{{ ansible_distribution == 'MacOSX' }}"
-
   tasks:
     - name: Install VS Code Extensions
       command: code --install-extension {{ item }}

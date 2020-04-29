@@ -2,76 +2,11 @@
   hosts: 127.0.0.1
   connection: local
 
-  vars:
-    docker_distro_release: "{{ ansible_distribution_release if ansible_distribution_release != 'eoan' else 'disco' }}"
-    is_mac: "{{ ansible_distribution == 'MacOSX' }}"
-
   tasks:
-    - set_fact: is_wsl={{ not is_mac and lookup('file', '/proc/version') is regex('(M|m)icrosoft') }}
-
-    # Linux
-
-    - name: Install Docker pre-requisites
-      become: yes
-      apt:
-        package: gnupg-agent
-      when: not is_mac
-
-    - name: Add Docker APT package key
-      become: yes
-      apt_key:
-        url: https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg
-      when: not is_mac
-
-    - name: Add Docker APT package repository
-      become: yes
-      apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ docker_distro_release }} stable
-        filename: docker
-        update_cache: no
-      register: apt_repository
-      when: not is_mac
-
-    - name: Update APT package list
-      become: yes
-      apt:
-        update_cache: yes
-      when: apt_repository.changed
-      register: apt_update
-      retries: 5
-      until: apt_update is success
-
-    - name: Install Docker CLI components (Linux)
-      become: yes
-      apt:
-        package: "{{ item }}"
-      loop:
-        - docker-ce-cli
-        - docker-compose
-      when: not is_mac
-
-    - name: Install Docker engine (Linux)
-      become: yes
-      apt:
-        package: docker-ce
-      when: not is_mac and not is_wsl
-
-    - name: Enable Docker engine for current user
-      become: yes
-      user:
-        name={{ lookup('env', "USER") }}
-        groups=docker
-        append=yes
-      when: not is_mac and not is_wsl
-
-    # macOS
-
     - name: Install Docker CLI components (macOS)
       homebrew:
         name: docker-compose
-      when: is_mac
 
     - name: Install Docker engine (macOS)
       homebrew_cask:
         name: docker
-      when: is_mac
