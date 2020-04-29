@@ -1,0 +1,14 @@
+- name: Google Cloud CLI
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Install CLI (macOS)
+      register: gcloud_cli_installed
+      shell:
+        cmd: "curl -o- https://sdk.cloud.google.com | bash -s --disable-prompts"
+        warn: false
+
+    - name: Perform first-run experience
+      command: gcloud init
+      when: gcloud_cli_installed.changed
