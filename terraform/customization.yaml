@@ -1,0 +1,15 @@
+- name: terraform (customization)
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Add useful terraform aliases
+      blockinfile:
+        path: ~/.bashrc
+        marker: "### {mark} Ansible managed: terraform shortcuts"
+        block: |
+          alias tf=terraform
+          alias tfa='terraform apply'
+          function terratoken () {
+            export GOOGLE_OAUTH_ACCESS_TOKEN="$(gcloud auth print-access-token)"
+          }
