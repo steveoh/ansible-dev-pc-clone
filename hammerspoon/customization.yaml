@@ -1,0 +1,16 @@
+- name: Hammerspoon (customization)
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+
+    - name: Ensure config folder exists
+      file:
+        path: ~/.hammerspoon
+        state: directory
+        mode: 0700
+
+    - name: Set configuration
+      copy:
+        src: init.lua
+        dest: ~/.hammerspoon/init.lua

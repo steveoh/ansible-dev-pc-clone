@@ -1,0 +1,8 @@
+- name: Hammerspoon
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Install Hammerspoon (macOS)
+      homebrew_cask:
+        name: hammerspoon
