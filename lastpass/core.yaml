@@ -1,0 +1,9 @@
+- name: Lastpass
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Install Lastpass (macOS)
+      homebrew_cask:
+        name: lastpass-cli
+        options: '--with-pinentry --with-doc'
