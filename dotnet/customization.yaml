@@ -16,3 +16,9 @@
         - dotnet-nuget-gc
         - dotnet-ef
         - dotnet-core-uninstall
+    - name: Ensure environment variables
+      blockinfile:
+        path: ~/.bashrc
+        marker: "### {mark} Ansible managed: dotnet customization"
+        block: |
+          export DOTNET_CLI_TELEMETRY_OPTOUT=false
