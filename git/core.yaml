@@ -9,3 +9,7 @@
       loop:
         - git
         - gpg
+
+    - name: Install Github Desktop (macOS)
+      homebrew_cask:
+        name: github
