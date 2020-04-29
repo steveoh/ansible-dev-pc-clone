@@ -6,5 +6,8 @@
     },
     "files.associations": {
       "*.yaml": "ansible"
-    }
+    },
+    "cSpell.words": [
+      "ansible"
+    ]
 }
