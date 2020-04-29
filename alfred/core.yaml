@@ -1,0 +1,8 @@
+- name: Alfred
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Install Alfred 3 (macOS)
+      homebrew_cask:
+        name: alfred3
