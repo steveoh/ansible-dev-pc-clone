@@ -17,6 +17,28 @@
         - pflannery.vscode-versionlens                    # Version Lens
         - visualstudioexptteam.vscodeintellicode          # Visual Studio IntelliCode
         - ms-vscode-remote.vscode-remote-extensionpack    # Remote Development
+        - auiworks.amvim                                  # vim
+        - coenraads.bracket-pair-colorizer-2
+        - vmsynkov.colonize
+        - ryanluker.vscode-coverage-gutters
+        - aeschli.vscode-css-formatter
+        - mikestead.dotenv
+        - grapecity.gc-excelviewer
+        - sleistner.vscode-fileutils
+        - mkxml.vscode-filesize
+        - ee92.folderize
+        - davidanson.vscode-markdownlint
+        - ibm.output-colorizer
+        - bradlc.vscode-tailwindcss
+        - ryu1kn.partial-diff
+        - taoklerks.poor-mans-t-sql-formatter-vscode
+        - chrmarti.regex
+        - shan.code-settings-sync
+        - richie5um2.vscode-sort-json
+        - mauve.terraform
+        - ms-vscode.wordcount
+        - dotjoshjohnson.xml
+        - slevesque.vscode-zipexplorer
 
     - name: Ensure ~/.config folder exists
       file:
