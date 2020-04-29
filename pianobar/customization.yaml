@@ -1,0 +1,16 @@
+- name: Pianobar (customization)
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+
+    - name: Ensure config folder exists
+      file:
+        path: ~/.config/pianobar
+        state: directory
+        mode: 0700
+
+    - name: Set configuration
+      copy:
+        src: config
+        dest: ~/.config/pianobar/config
