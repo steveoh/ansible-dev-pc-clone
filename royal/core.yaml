@@ -1,0 +1,8 @@
+- name: Royal
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Install Royal tsx (macOS)
+      homebrew_cask:
+        name: royal-tsx
