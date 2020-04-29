@@ -39,6 +39,8 @@
         - ms-vscode.wordcount
         - dotjoshjohnson.xml
         - slevesque.vscode-zipexplorer
+        - wart.ariake-dark
+        - vscode-icons-team.vscode-icons
 
     - name: Ensure ~/.config folder exists
       file:
