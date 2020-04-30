@@ -1,74 +1,98 @@
+
 - name: Core OS customization (Gnome UI)
   hosts: 127.0.0.1
   connection: local
 
   tasks:
+
     - name: Ensure software updates daily (macOS)
       shell:
         cmd: "defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1"
+
     - name: Increase sound quality for Bluetooth headphones/headsets (macOS)
       shell:
         cmd: "defaults write com.apple.BluetoothAudioAgent 'Apple Bitpool Min (editable)' -int 40"
+
     - name: Require password after sleep or screen saver begins (macOS)
       shell:
         cmd: "defaults write com.apple.screensaver askForPassword -int 1"
+
     - name: Require password immediately after sleep or screen saver begins (macOS)
       shell:
         cmd: "defaults write com.apple.screensaver askForPasswordDelay -int 0"
+
     - name: Save screenshots to desktop (macOS)
       shell:
         cmd: "defaults write com.apple.screencapture location -string '${HOME}/Desktop'"
+
     - name: Save screenshots as png (macOS)
       shell:
         cmd: "defaults write com.apple.screencapture type -string 'png'"
+
     - name: Change new window target (macOS)
       shell:
         cmd: "defaults write com.apple.finder NewWindowTarget -string 'PfDe'"
+
     - name: Set new window to dev (macOS)
       shell:
         cmd: "defaults write com.apple.finder NewWindowTargetPath -string 'file://${HOME}/dev/'"
+
     - name: Show hidden files (macOS)
       shell:
         cmd: "defaults write com.apple.finder AppleShowAllFiles -bool true"
+
     - name: Show file extensions (macOS)
       shell:
         cmd: "defaults write NSGlobalDomain AppleShowAllExtensions -bool true"
+
     - name: Search current folder (macOS)
       shell:
         cmd: "defaults write com.apple.finder FXDefaultSearchScope -string 'SCcf'"
+
     - name: No warning for extension change (macOS)
       shell:
         cmd: "defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false"
+
     - name: Skip DS_Store creation (macOS)
       shell:
         cmd: "defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true"
+
     - name: Skip DS_Store creation usb (macOS)
       shell:
         cmd: "defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true"
+
     - name: Disable trash empty warning (macOS)
       shell:
         cmd: "defaults write com.apple.finder WarnOnEmptyTrash -bool false"
+
     - name: Empty trash securely (macOS)
       shell:
         cmd: "defaults write com.apple.finder EmptyTrashSecurely -bool true"
+
     - name: Disable the Are you sure you want to open this application? dialog (macOS)
       shell:
         cmd: "defaults write com.apple.LaunchServices LSQuarantine -bool false"
+
     - name:  Disable automatic period substitution as it’s annoying when typing code (macOS)
       shell:
         cmd: "defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false"
+
     - name: Disable press-and-hold for keys in favor of key repeat (macOS)
       shell:
         cmd: "defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false"
+
     - name: Key Repeat (macOS)
       shell:
-        cmd: "defaults write NSGlobalDomain KeyRepeat -int 1"
+        cmd: "defaults write NSGlobalDomain KeyRepeat -int 20"
+
     - name: Faster repeat rate (macOS)
       shell:
-        cmd: "defaults write NSGlobalDomain InitialKeyRepeat -int 10"
+        cmd: "defaults write NSGlobalDomain InitialKeyRepeat -int 20"
+
     - name: Disable machine sleep while charging (macOS)
       shell:
         cmd: "pmset -c sleep 0"
+
     - name: Disable dashboard (macOS)
       shell:
         cmd: "defaults write com.apple.dashboard mcx-disabled -bool true"
