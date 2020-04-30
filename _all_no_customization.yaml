@@ -14,6 +14,7 @@
 - import_playbook: core.yaml
 - import_playbook: dev-folders/core.yaml
 - import_playbook: fonts/core.yaml
+- import_playbook: omz/core.yaml
 
 ##### Developer tools
 

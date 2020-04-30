@@ -1,0 +1,23 @@
+- name: oh my zsh
+  hosts: 127.0.0.1
+  connection: local
+
+  roles:
+    - role: gantsign.antigen
+      users:
+        - username: sgourley
+          antigen_libraries:
+            - name: oh-my-zsh
+          antigen_theme:
+            name: bullet-train
+          antigen_bundles:
+            - name: z
+            - name: brew
+            - name: colorize
+            - name: dotnet
+            - name: nvm
+            - name: zsh_reload
+            - name: syntax-highlighting
+              url: zsh-users/zsh-syntax-highlighting
+            - name: auto-suggest
+              url: zsh-users/zsh-autosuggestions

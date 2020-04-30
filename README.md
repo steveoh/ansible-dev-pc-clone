@@ -12,22 +12,20 @@ This repository contains useful scripts to set up a mac development machine. The
 
 1. Install [Homebrew](https://docs.brew.sh/Installation)
 
-2. Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-macos)
+1. Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-macos)
 
-3. Change the default shell from zsh to bash:
+1. Install Ansible Roles
 
    ```bash
-   chsh -s /bin/bash
-   echo "export BASH_SILENCE_DEPRECATION_WARNING=1" >> ~/.bashrc
-   chmod 700 ~/.bashrc
-   ln -s ~/.bashrc ~/.bash_profile
+   ansible-galaxy install gantsign.antigen_bundles
+   ansible-galaxy install gantsign.antigen_bundles
    ```
 
-4. Set up Python 3 as the default version of Python:
+1. Set up Python 3 as the default version of Python:
 
    ```bash
    echo "alias python='python3'" >> ~/.bashrc
-   echo "export PATH=$HOME/Library/Python/3.7/bin:$PATH" >> ~/.bashrc
+   echo "export PATH=$HOME/Library/Python/3.7/bin:$PATH" >> ~/.zshrc
    ```
 
 ## Running
