@@ -12,6 +12,8 @@
 ##### Operating system packages and configuration
 
 - import_playbook: core.yaml
+- import_playbook: dev-folders/core.yaml
+- import_playbook: fonts/core.yaml
 
 ##### Developer tools
 
@@ -37,7 +39,7 @@
 - import_playbook: kubectl/core.yaml
 - import_playbook: kubectl/vscode.yaml
 
-# Virtualization (QEMU/KVM on Linux, VirtualBox on macOS)
+# Virtualization
 - import_playbook: virtualization/core.yaml
 
 # Mono (.NET Framework)
@@ -59,6 +61,27 @@
 - import_playbook: ruby/core.yaml
 - import_playbook: ruby/vscode.yaml
 
+# Google Cloud CLI
+- import_playbook: google-cloud-cli/core.yaml
+
+# Terraform CLI
+- import_playbook: terraform/core.yaml
+
+# IRC
+- import_playbook: irc/core.yaml
+
+# window arrangement
+- import_playbook: hammerspoon/core.yaml
+
+# password management
+- import_playbook: lastpass/core.yaml
+
+# vim
+- import_playbook: vim/core.yaml
+
+# music
+- import_playbook: pianobar/core.yaml
+
 ##### Applications (free)
 
 # Firefox
@@ -67,6 +90,9 @@
 # Google Chrome
 - import_playbook: google-chrome/core.yaml
 
+# Google Chat
+- import_playbook: google-chat/core.yaml
+
 # Prettier version of ping w/ graphs
 - import_playbook: prettyping/core.yaml
 
@@ -74,3 +100,9 @@
 - import_playbook: slack/core.yaml
 
 ##### Applications (commercial license required)
+
+# alfred
+- import_playbook: alfred/core.yaml
+
+# RDP
+- import_playbook: royal/core.yaml
