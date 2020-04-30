@@ -27,6 +27,8 @@
       "hammerspoon",
       "irssi",
       "kohler",
+      "kubectl",
+      "kubernetes",
       "liveshare",
       "nuget",
       "omnisharp",
