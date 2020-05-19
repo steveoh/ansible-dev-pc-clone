@@ -3,6 +3,9 @@
   connection: local
 
   tasks:
+    - name: Tap Font Cask
+      homebrew_tap:
+        name: homebrew/cask-font
     - name: Install Font Homebrew packages
       homebrew_cask:
         name: "{{ item }}"
