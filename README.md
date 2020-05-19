@@ -17,7 +17,7 @@ This repository contains useful scripts to set up a mac development machine. The
 1. Install Ansible Roles
 
    ```bash
-   ansible-galaxy install gantsign.antigen_bundles
+   ansible-galaxy install gantsign.antigen
    ansible-galaxy install gantsign.antigen_bundles
    ```
 
