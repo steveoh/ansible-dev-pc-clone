@@ -3,19 +3,6 @@
   connection: local
 
   tasks:
-    # Common
-
-    - name: Create ~/bin
-      file:
-        path: ~/bin
-        state: directory
-        mode: 0700
-
-    - name: Add ~/bin to PATH
-      lineinfile:
-        path: ~/.bashrc
-        line: export PATH=$PATH:~/bin
-
     # macOS
 
     - name: Update Homebrew and all packages
@@ -30,8 +17,3 @@
         - bat
         - htop
         - jq
-
-    - name: Add GNU tar to the PATH
-      lineinfile:
-        path: ~/.bashrc
-        line: export PATH=/usr/local/opt/gnu-tar/libexec/gnubin:$PATH
