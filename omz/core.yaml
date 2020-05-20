@@ -1,23 +1,47 @@
-- name: oh my zsh
+- name: antigen
   hosts: 127.0.0.1
   connection: local
 
-  roles:
-    - role: gantsign.antigen
-      users:
-        - username: sgourley
-          antigen_libraries:
-            - name: oh-my-zsh
-          antigen_theme:
-            name: bullet-train
-          antigen_bundles:
-            - name: z
-            - name: brew
-            - name: colorize
-            - name: dotnet
-            - name: nvm
-            - name: zsh_reload
-            - name: syntax-highlighting
-              url: zsh-users/zsh-syntax-highlighting
-            - name: auto-suggest
-              url: zsh-users/zsh-autosuggestions
+  tasks:
+    - name: check that zsh is installed
+      stat:
+        path: ~/.zshrc
+      register: zsh
+
+    - name: install oh my zsh
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      when: zsh.stat.exists != true
+
+    - name: install antigen package
+      homebrew:
+        name: antigen
+
+    - name: Create antigenrc
+      copy:
+        dest: ~/.antigenrc
+        content: |
+          antigen use oh-my-zsh
+
+          antigen bundle z
+          antigen bundle brew
+          antigen bundle colorize
+          antigen bundle dotnet
+          antigen bundle zsh_reload
+          antigen bundle zsh-users/zsh-syntax-highlighting
+          antigen bundle zsh-users/zsh-autosuggestions
+          antigen bundle lukechilds/zsh-nvm
+
+          antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+
+          if [[ "$OSTYPE" == "darwin"* ]]; then
+              antigen bundle osx
+          fi
+
+          antigen apply
+
+    - name: init antigen
+      copy:
+        dest: ~/.zshrc
+        content: |
+          source /usr/local/share/antigen/antigen.zsh
+          antigen init ~/.antigenrc
