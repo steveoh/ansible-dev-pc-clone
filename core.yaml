@@ -17,3 +17,7 @@
         - bat
         - htop
         - jq
+
+    - name: Install terminal
+      homebrew_cask:
+        name: iterm2
