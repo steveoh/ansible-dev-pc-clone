@@ -48,7 +48,6 @@
 - import_playbook: mono/vscode.yaml
 
 # NodeJS
-- import_playbook: nodejs/core.yaml
 - import_playbook: nodejs/vscode.yaml
 
 # Postman
