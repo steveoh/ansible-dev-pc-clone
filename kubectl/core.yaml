@@ -3,6 +3,10 @@
   connection: local
 
   tasks:
+    - name: Install kubectl
+      homebrew:
+        name: kubectl
+
     - name: Install bash completion support
       homebrew:
         name: bash-completion
