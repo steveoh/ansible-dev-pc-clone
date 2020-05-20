@@ -106,3 +106,23 @@
     - name: Auto hide dock (macOS)
       shell:
         cmd: "defaults write com.apple.dock autohide -bool true && killall Dock"
+
+    - name: Tap to click (macOS)
+      shell:
+        cmd: "defaults write com.apple.AppleMultitouchTrackpad Clicking 1"
+
+    - name: Three finger drag (macOS)
+      shell:
+        cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag 1"
+
+    - name: Horizontal Swipe Gesture (macOS)
+      shell:
+        cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture 0"
+
+    - name: Verticle Swipe Gesture (macOS)
+      shell:
+        cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture 0"
+
+    - name: Right edge Swipe Gesture (macOS)
+      shell:
+        cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture 0"
