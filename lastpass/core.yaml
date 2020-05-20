@@ -4,5 +4,5 @@
 
   tasks:
     - name: Install Lastpass (macOS)
-      homebrew_cask:
+      homebrew:
         name: lastpass-cli
