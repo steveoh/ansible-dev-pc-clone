@@ -13,6 +13,7 @@
 
 # - import_playbook: customization-text.yaml
 - import_playbook: customization-ui.yaml
+- import_playbook: omz/customization.yaml
 - import_playbook: vscode/customization.yaml
 - import_playbook: docker/customization.yaml
 - import_playbook: dotnet/customization.yaml

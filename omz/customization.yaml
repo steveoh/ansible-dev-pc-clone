@@ -1,0 +1,44 @@
+- name: Oh my zsh
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Enhance terminal prompt
+      blockinfile:
+        dest: ~/.zshrc
+        marker: "### {mark} Ansible managed: prompt"
+        block: |
+          # remove name from prompt
+          prompt_context() {}
+          BULLETTRAIN_PROMPT_ORDER=(
+            uptime
+            status
+            custom
+            context
+            dir
+            nvm
+            git
+            cmd_exec_time
+          )
+
+          prompt_uptime(){
+              on=${${${(s: :)"$(uptime)"}[3]}%,}
+              prompt_segment $BULLETTRAIN_TIME_BG $BULLETTRAIN_TIME_FG "[$on]"
+          }
+
+    - name: Setup aliases
+      blockinfile:
+        dest: ~/.zshrc
+        marker: "### {mark} Ansible managed: aliases"
+        block: |
+          alias zshconfig='vim ~/.zshrc'
+          alias ohmyzsh='vim ~/.oh-my-zsh'
+          alias home='deactivate; cd ~; clear'
+          alias sgid-index='>&2 echo "starting sgid index update" && workon gis.utah.gov && >&2 echo "switching to master branch" && git checkout master && >&2 echo "updating from remote" && git up && >&2 echo "running python" && python datatable.py
+          if git commit -am ":package: update sgid-index"
+          then git push
+          fi
+          >&2 echo "done" && deactivate && cd ~/'
+          alias clip='pbcopy'
+          alias grep='grep --colour=auto'
+          alias ls='ls -GFh'
