@@ -2,7 +2,7 @@
     // Text Editor
     "editor.accessibilitySupport": "off",
     "editor.cursorBlinking": "expand",
-    "editor.fontFamily": "Source Code Pro",
+    "editor.fontFamily": "SauceCodePro Nerd Font",
     "editor.fontLigatures": true,
     "editor.fontSize": 15,
     "editor.formatOnPaste": true,
