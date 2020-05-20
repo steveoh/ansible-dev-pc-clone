@@ -1,5 +1,5 @@
 
-- name: Core OS customization (Gnome UI)
+- name: Core OS customization (macOS)
   hosts: 127.0.0.1
   connection: local
 
@@ -83,16 +83,26 @@
 
     - name: Key Repeat (macOS)
       shell:
-        cmd: "defaults write NSGlobalDomain KeyRepeat -int 20"
+        cmd: "defaults write NSGlobalDomain KeyRepeat -int 2"
 
     - name: Faster repeat rate (macOS)
       shell:
-        cmd: "defaults write NSGlobalDomain InitialKeyRepeat -int 20"
+        cmd: "defaults write NSGlobalDomain InitialKeyRepeat -int 25"
 
     - name: Disable machine sleep while charging (macOS)
+      become: yes
       shell:
         cmd: "pmset -c sleep 0"
 
     - name: Disable dashboard (macOS)
       shell:
         cmd: "defaults write com.apple.dashboard mcx-disabled -bool true"
+
+    - name: Speed up mouse (macOS)
+      become: yes
+      shell:
+        cmd: "defaults write -g com.apple.mouse.scaling -int 2.5"
+
+    - name: Auto hide dock (macOS)
+      shell:
+        cmd: "defaults write com.apple.dock autohide -bool true && killall Dock"
