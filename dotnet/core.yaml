@@ -11,20 +11,19 @@
     - name: Install .NET SDK installer
       get_url:
         url: https://dot.net/v1/dotnet-install.sh
-        dest: ~/bin/dotnet-install
+        dest: /usr/local/bin/dotnet-install
         mode: 0755
 
     - name: Install .NET SDK (macOS)
-      shell: ./dotnet-install -c {{ item }}
+      shell: dotnet-install -c {{ item }}
       register: dotnet_sdk_installed_mac
       loop: "{{ dotnet_versions }}"
       args:
-        chdir: ~/bin
         creates: ~/.dotnet/sdk/{{ item }}.*/.version
 
     - name: Create shortcut to dotnet
       file:
-        path: ~/bin/dotnet
+        path: /usr/local/bin/dotnet
         src: ~/.dotnet/dotnet
         state: link
 
