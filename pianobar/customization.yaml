@@ -16,7 +16,7 @@
 
     - name: Add useful pianobar aliases
       blockinfile:
-        path: ~/.bashrc
+        path: ~/.zshrc
         marker: "### {mark} Ansible managed: pianobar customizations"
         block: |
           alias p='pianobar 2>/dev/null'

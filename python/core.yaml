@@ -15,7 +15,7 @@
 
     - name: Enable pyenv
       blockinfile:
-        path: ~/.bashrc
+        path: ~/.zshrc
         marker: "### {mark} Ansible managed: pyenv support"
         block: |
           export PYENV_ROOT=$HOME/.pyenv

@@ -18,7 +18,7 @@
         - dotnet-core-uninstall
     - name: Ensure environment variables
       blockinfile:
-        path: ~/.bashrc
+        path: ~/.zshrc
         marker: "### {mark} Ansible managed: dotnet customization"
         block: |
-          export DOTNET_CLI_TELEMETRY_OPTOUT=false
+          export DOTNET_CLI_TELEMETRY_OPTOUT=true

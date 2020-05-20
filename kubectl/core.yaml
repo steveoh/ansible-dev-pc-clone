@@ -10,7 +10,7 @@
 
     - name: Add bash completion support to shell
       lineinfile:
-        path: ~/.bashrc
+        path: ~/.zshrc
         line: source $(brew --prefix)/etc/bash_completion
       when: bash_completion.changed
 
@@ -18,7 +18,7 @@
 
     - name: Enable bash completion for kubectl
       blockinfile:
-        path: ~/.bashrc
+        path: ~/.zshrc
         marker: "### {mark} Ansible managed: Enable kubectl auto-complete"
         block: |
           eval "$(kubectl completion bash)"

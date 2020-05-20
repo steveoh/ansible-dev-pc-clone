@@ -9,7 +9,7 @@
         dest: ~/.gitconfig
     - name: Ensure environment variables
       blockinfile:
-        path: ~/.bashrc
+        path: ~/.zshrc
         marker: "### {mark} Ansible managed: git customization"
         block: |
           export GIT_EDITOR=vim

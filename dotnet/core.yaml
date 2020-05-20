@@ -36,7 +36,7 @@
 
     - name: Update environment for .NET Core
       blockinfile:
-        path: ~/.bashrc
+        path: ~/.zshrc
         marker: "### {mark} Ansible managed: .NET Core enhancement"
         block: |
           export PATH=$PATH:$HOME/.dotnet/tools

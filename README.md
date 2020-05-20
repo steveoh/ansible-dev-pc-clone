@@ -24,7 +24,7 @@ This repository contains useful scripts to set up a mac development machine. The
 1. Set up Python 3 as the default version of Python:
 
    ```bash
-   echo "alias python='python3'" >> ~/.bashrc
+   echo "alias python='python3'" >> ~/.zshrc
    echo "export PATH=$HOME/Library/Python/3.7/bin:$PATH" >> ~/.zshrc
    ```
 

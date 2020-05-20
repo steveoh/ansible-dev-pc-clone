@@ -5,7 +5,7 @@
   tasks:
     - name: Add custom Docker commands
       blockinfile:
-        path: ~/.bashrc
+        path: ~/.zshrc
         marker: "### {mark} Ansible managed: Docker customization"
         block: |
           alias dc='docker-compose'

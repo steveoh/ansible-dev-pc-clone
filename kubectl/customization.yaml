@@ -5,7 +5,7 @@
   tasks:
     - name: Add useful kubectl aliases
       blockinfile:
-        path: ~/.bashrc
+        path: ~/.zshrc
         marker: "### {mark} Ansible managed: kubectl shortcuts"
         block: |
           alias k=kubectl

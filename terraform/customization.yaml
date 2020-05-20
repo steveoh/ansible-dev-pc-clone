@@ -5,7 +5,7 @@
   tasks:
     - name: Add useful terraform aliases
       blockinfile:
-        path: ~/.bashrc
+        path: ~/.zshrc
         marker: "### {mark} Ansible managed: terraform shortcuts"
         block: |
           alias tf=terraform
