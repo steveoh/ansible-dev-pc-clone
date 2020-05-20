@@ -6,23 +6,3 @@
     - name: Install kubectl
       homebrew:
         name: kubectl
-
-    - name: Install bash completion support
-      homebrew:
-        name: bash-completion
-      register: bash_completion
-
-    - name: Add bash completion support to shell
-      lineinfile:
-        path: ~/.zshrc
-        line: source $(brew --prefix)/etc/bash_completion
-      when: bash_completion.changed
-
-    # Common
-
-    - name: Enable bash completion for kubectl
-      blockinfile:
-        path: ~/.zshrc
-        marker: "### {mark} Ansible managed: Enable kubectl auto-complete"
-        block: |
-          eval "$(kubectl completion bash)"

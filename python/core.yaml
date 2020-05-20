@@ -3,6 +3,14 @@
   connection: local
 
   tasks:
+    - name: Python 3
+      blockinfile:
+        path: ~/.zshrc
+        marker: "### {mark} Ansible managed: python3"
+        block: |
+          alias python='python3'
+          export PATH=$HOME/Library/Python/3.7/bin:$PATH
+
     - name: Install pyenv
       git:
         dest: ~/.pyenv
@@ -12,13 +20,3 @@
       git:
         dest: ~/.pyenv/plugins/pyenv-virtualenv
         repo: https://github.com/pyenv/pyenv-virtualenv
-
-    - name: Enable pyenv
-      blockinfile:
-        path: ~/.zshrc
-        marker: "### {mark} Ansible managed: pyenv support"
-        block: |
-          export PYENV_ROOT=$HOME/.pyenv
-          export PATH=$PATH:$PYENV_ROOT/bin:$PYENV_ROOT/plugins/pyenv-virtualenv/bin
-          eval "$(pyenv init -)"
-          eval "$(pyenv virtualenv-init -)"
