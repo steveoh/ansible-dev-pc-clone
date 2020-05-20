@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Alfred 3 (macOS)
+    - name: Install Alfred (macOS)
       homebrew_cask:
-        name: alfred3
+        name: alfred
