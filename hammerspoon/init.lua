@@ -2,15 +2,15 @@ hs.application.enableSpotlightForNameSearches(true)
 local appfinder = require("hs.appfinder")
 local apps = {
  -- app name, 3 monitor, 2 monitor, 1 monitor location
-  { "Google Chrome", hs.geometry.rect(38.0, 23.0, 1488.0, 1023.0), hs.geometry.rect(135.0, 23.0, 1285.0, 1023.0), hs.geometry.rect(280.0, 23.0, 1128.0, 1023.0) },
+  { "Google Chrome", hs.geometry.rect(38.0, 23.0, 1488.0, 1023.0), hs.geometry.rect(139.0, 23.0, 1385.0, 1097.0), hs.geometry.rect(280.0, 23.0, 1128.0, 1023.0) },
   { "Microsoft To Do", hs.geometry.rect(990.0, -527.0, 864.0, 527.0), hs.geometry.rect(1253.0, -527.0, 864.0, 526.0), hs.geometry.rect(816.0, 524.0, 864.0, 526.0) },
   { "TweetDeck", hs.geometry.rect(-192.0, -1129.0, 414.0, 1129.0), hs.geometry.rect(-443.0, -1417.0, 414.0, 1417.0), hs.geometry.rect(-0.0, 23.0, 425.0, 1027.0) },
-  { "Slack", hs.geometry.rect(-28.0, -1129.0, 865.0, 1129.0), hs.geometry.rect(-28.0, -1417.0, 865.0, 1417.0), hs.geometry.rect(208.0, 23.0, 865.0, 1027.0) },
-  { "iTerm2", hs.geometry.rect(838.0, -1129.0, 1018.0, 291.0), hs.geometry.rect(843.0, -1417.0, 1274.0, 293.0), hs.geometry.rect(1046.0, 23.0, 634.0, 293.0) },
-  { "Microsoft OneNote", hs.geometry.rect(839.0, -584.0, 677.0, 584.0), hs.geometry.rect(838.0, -558.0, 1052.0, 558.0), hs.geometry.rect(700.0, 416.0, 814.0, 634.0) },
+  { "Slack", hs.geometry.rect(-28.0, -1129.0, 865.0, 1129.0), hs.geometry.rect(-467.0, -1417.0, 865.0, 1417.0), hs.geometry.rect(208.0, 23.0, 865.0, 1027.0) },
+  { "iTerm2", hs.geometry.rect(838.0, -1129.0, 1018.0, 291.0), hs.geometry.rect(747.0, -1416.0, 1346.0, 279.0), hs.geometry.rect(1046.0, 23.0, 634.0, 293.0) },
+  { "Microsoft OneNote", hs.geometry.rect(839.0, -584.0, 677.0, 584.0), hs.geometry.rect(399.0, -528.0, 1052.0, 528.0), hs.geometry.rect(700.0, 416.0, 814.0, 634.0) },
   { "Parallels Desktop", hs.geometry.rect(1046.0, -690.0, 810.0, 162.0), hs.geometry.rect(1306.0, -690.0, 810.0, 162.0), hs.geometry.rect(1046.0, -797.0, 810.0, 162.0) },
-  { "Chat", hs.geometry.rect(837.0, -1129.0, 133.0, 544.0), hs.geometry.rect(839.0, -1123.0, 617.0, 564.0), hs.geometry.rect(803.0, -1129.0, 153.0, 804.0) },
-  { "Messages", hs.geometry.rect(1196.0, -1129.0, 660.0, 595.0), hs.geometry.rect(1457.0, -1123.0, 660.0, 595.0), hs.geometry.rect(1020.0, 23.0, 660.0, 595.0) }
+  { "Chat", hs.geometry.rect(837.0, -1129.0, 133.0, 544.0), hs.geometry.rect(747.0, -1137.0, 685.0, 608.0), hs.geometry.rect(803.0, -1129.0, 153.0, 804.0) },
+  { "Messages", hs.geometry.rect(1196.0, -1129.0, 660.0, 595.0), hs.geometry.rect(1433.0, -1136.0, 660.0, 607.0), hs.geometry.rect(1020.0, 23.0, 660.0, 595.0) }
 }
 
 -- refresh config
