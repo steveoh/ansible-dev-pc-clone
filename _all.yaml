@@ -19,7 +19,6 @@
 - import_playbook: git/customization.yaml
 - import_playbook: kubectl/customization.yaml
 - import_playbook: nodejs/customization.yaml
-- import_playbook: ruby/customization.yaml
 - import_playbook: hammerspoon/customization.yaml
 - import_playbook: irc/customization.yaml
 - import_playbook: pianobar/customization.yaml

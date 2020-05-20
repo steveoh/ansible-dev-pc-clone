@@ -58,10 +58,6 @@
 - import_playbook: python/core.yaml
 - import_playbook: python/vscode.yaml
 
-# Ruby
-- import_playbook: ruby/core.yaml
-- import_playbook: ruby/vscode.yaml
-
 # Google Cloud CLI
 - import_playbook: google-cloud-cli/core.yaml
 
