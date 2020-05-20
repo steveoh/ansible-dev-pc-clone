@@ -8,7 +8,14 @@
         name: "{{ item }}"
       loop:
         - git
-        - gpg
+        - gnupg
+        - pinentry-mac
+
+    - name: update agent
+      copy:
+        dest: ~/.gnupg/gpg-agent.conf
+        content: |
+          pinentry-program /usr/local/bin/pinentry-mac
 
     - name: Install Github Desktop (macOS)
       homebrew_cask:

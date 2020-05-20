@@ -18,7 +18,7 @@
 [commit]
     gpgsign = true
 [gpg]
-    program = /usr/local/MacGPG2/bin/gpg2
+    program = gpg
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
     s = status
