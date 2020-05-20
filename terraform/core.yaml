@@ -4,5 +4,5 @@
 
   tasks:
     - name: Install terraform (macOS)
-      homebrew_cask:
+      homebrew:
         name: terraform
