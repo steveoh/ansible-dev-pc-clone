@@ -2,7 +2,11 @@
   hosts: 127.0.0.1
   connection: local
 
+
   tasks:
+    - set_fact: user="{{ lookup('env','ANSIBLE_PIANO_USER') }}"
+    - set_fact: pw="{{ lookup('env','ANSIBLE_PIANO_PW') }}"
+
     - name: Ensure config folder exists
       file:
         path: ~/.config/pianobar
@@ -10,9 +14,12 @@
         mode: 0700
 
     - name: Set configuration
-      copy:
-        src: config
+      template:
+        src: config.j2
         dest: ~/.config/pianobar/config
+      vars:
+        user: env_user
+        pw: env_pw
 
     - name: Add useful pianobar aliases
       blockinfile:
