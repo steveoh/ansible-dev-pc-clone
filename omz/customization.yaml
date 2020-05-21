@@ -42,3 +42,16 @@
           alias clip='pbcopy'
           alias grep='grep --colour=auto'
           alias ls='ls -GFh'
+
+    - name: Ensure extras exists
+      file:
+        path: ~/.zshenv
+        state: file
+        mode: 0700
+
+    - name: Setup extras
+      blockinfile:
+        dest: ~/.zshrc
+        marker: "### {mark} Ansible managed: env"
+        block: |
+          source ~/.zshenv
