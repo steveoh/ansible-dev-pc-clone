@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Python 3
+    - name: Ensure Python 3 on path
       blockinfile:
         path: ~/.zshrc
         marker: "### {mark} Ansible managed: python3"
@@ -11,12 +11,12 @@
           alias python='python3'
           export PATH=$HOME/Library/Python/3.7/bin:$PATH
 
-    - name: Install pyenv
+    - name: Ensure pyenv
       git:
         dest: ~/.pyenv
         repo: https://github.com/pyenv/pyenv
 
-    - name: Install pyenv-virtualenv
+    - name: Ensure pyenv-virtualenv
       git:
         dest: ~/.pyenv/plugins/pyenv-virtualenv
         repo: https://github.com/pyenv/pyenv-virtualenv

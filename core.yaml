@@ -5,12 +5,12 @@
   tasks:
     # macOS
 
-    - name: Update Homebrew and all packages
+    - name: Ensure Homebrew and all packages
       homebrew:
         update_homebrew: yes
         upgrade_all: yes
 
-    - name: Install core packages
+    - name: Ensure core packages
       homebrew:
         name: "{{ item }}"
       loop:
@@ -18,6 +18,6 @@
         - htop
         - jq
 
-    - name: Install terminal
+    - name: Ensure terminal
       homebrew_cask:
         name: iterm2

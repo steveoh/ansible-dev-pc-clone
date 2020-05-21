@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Install VS Code Extensions
+    - name: Ensure vscode extensions
       command: code --install-extension {{ item }}
       args:
         creates: ~/.vscode/extensions/{{ item }}-*/package.json
@@ -48,18 +48,18 @@
         state: directory
         mode: 0700
 
-    - name: Link '~/Library/Application Support/Code' to '~/.config/Code' (macOS)
+    - name: Ensure link
       file:
         path: ~/.config/Code
         src: ~/Library/Application Support/Code
         state: link
 
-    - name: Override default VS Code preferences
+    - name: Ensure VS Code preferences
       copy:
         src: settings.json
         dest: ~/.config/Code/User/settings.json
 
-    - name: Override default VS Code key bindings
+    - name: Ensure VS Code key bindings
       copy:
         src: keybindings.json
         dest: ~/.config/Code/User/keybindings.json

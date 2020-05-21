@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install VS Code (macOS)
+    - name: Ensure VS Code
       homebrew_cask:
         name: visual-studio-code

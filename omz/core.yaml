@@ -1,22 +1,22 @@
-- name: antigen
+- name: oh my zsh
   hosts: 127.0.0.1
   connection: local
 
   tasks:
-    - name: check that zsh is installed
+    - name: Check for zsh installation
       stat:
         path: ~/.zshrc
       register: zsh
 
-    - name: install oh my zsh
+    - name: Ensure oh my zsh
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
       when: zsh.stat.exists != true
 
-    - name: install antigen package
+    - name: Ensure antigen
       homebrew:
         name: antigen
 
-    - name: Create antigenrc
+    - name: Ensure antigen configuration
       copy:
         dest: ~/.antigenrc
         content: |
@@ -41,7 +41,7 @@
 
           antigen apply
 
-    - name: init antigen
+    - name: Ensure zshrc
       copy:
         dest: ~/.zshrc
         content: |

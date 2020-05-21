@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Set configuration
+    - name: Ensure vim configuration
       copy:
-        src: vimrc
+        src: config
         dest: ~/.vimrc

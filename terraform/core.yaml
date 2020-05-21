@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install terraform (macOS)
+    - name: Ensure terraform
       homebrew:
         name: terraform

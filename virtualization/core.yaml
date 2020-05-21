@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Parallels (macOS)
+    - name: Ensure Parallels
       homebrew_cask:
         name: parallels

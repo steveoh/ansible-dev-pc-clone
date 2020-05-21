@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Add custom Docker commands
+    - name: Ensure custom Docker aliases
       blockinfile:
         path: ~/.zshrc
         marker: "### {mark} Ansible managed: Docker customization"

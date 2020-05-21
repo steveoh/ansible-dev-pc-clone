@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Google Chat (macOS)
+    - name: Ensure Google Chat
       homebrew_cask:
         name: google-chat

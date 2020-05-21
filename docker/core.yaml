@@ -3,10 +3,10 @@
   connection: local
 
   tasks:
-    - name: Install Docker CLI components (macOS)
+    - name: Ensure Docker CLI components
       homebrew:
         name: docker-compose
 
-    - name: Install Docker engine (macOS)
+    - name: Ensure Docker engine
       homebrew_cask:
         name: docker

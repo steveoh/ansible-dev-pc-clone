@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Add useful terraform aliases
+    - name: Ensure terraform aliases
       blockinfile:
         path: ~/.zshrc
         marker: "### {mark} Ansible managed: terraform shortcuts"

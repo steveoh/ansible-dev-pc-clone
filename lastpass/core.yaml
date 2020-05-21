@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Lastpass (macOS)
+    - name: Ensure Lastpass
       homebrew:
         name: lastpass-cli

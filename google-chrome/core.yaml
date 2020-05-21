@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Google Chrome (macOS)
+    - name: Install Google Chrome
       homebrew_cask:
         name: google-chrome

@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Hammerspoon (macOS)
+    - name: Ensure Hammerspoon
       homebrew_cask:
         name: hammerspoon

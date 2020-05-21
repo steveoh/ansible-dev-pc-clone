@@ -1,9 +1,9 @@
-- name: .NET Core
+- name: .NET Core (customization)
   hosts: 127.0.0.1
   connection: local
 
   tasks:
-    - name: Install global tools
+    - name: Ensure global tools
       command: dotnet tool install -g {{ item }}
       args:
         creates: ~/.dotnet/tools/.store/{{ item }}
@@ -16,6 +16,7 @@
         - dotnet-nuget-gc
         - dotnet-ef
         - dotnet-core-uninstall
+
     - name: Ensure environment variables
       blockinfile:
         path: ~/.zshrc

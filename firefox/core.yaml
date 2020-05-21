@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Firefox (macOS)
+    - name: Ensure Firefox
       homebrew_cask:
         name: firefox

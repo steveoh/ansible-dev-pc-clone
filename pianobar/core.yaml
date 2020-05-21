@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Homebrew package
+    - name: Ensure pianobar
       homebrew:
         name: pianobar

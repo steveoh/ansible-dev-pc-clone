@@ -6,7 +6,8 @@
     - name: Tap Font Cask
       homebrew_tap:
         name: homebrew/cask-font
-    - name: Install Font Homebrew packages
+
+    - name: Ensure custom fonts
       homebrew_cask:
         name: "{{ item }}"
       loop:

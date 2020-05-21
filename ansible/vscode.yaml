@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Install VS Code Extension
+    - name: Ensure vscode extensions
       command: code --install-extension vscoss.vscode-ansible
       args:
         creates: ~/.vscode/extensions/vscoss.vscode-ansible-*/package.json

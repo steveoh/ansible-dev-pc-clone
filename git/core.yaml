@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Install Homebrew packages
+    - name: Ensure git packages
       homebrew:
         name: "{{ item }}"
       loop:
@@ -11,12 +11,12 @@
         - gnupg
         - pinentry-mac
 
-    - name: update agent
+    - name: Update agent
       copy:
         dest: ~/.gnupg/gpg-agent.conf
         content: |
           pinentry-program /usr/local/bin/pinentry-mac
 
-    - name: Install Github Desktop (macOS)
+    - name: Ensure Github Desktop
       homebrew_cask:
         name: github

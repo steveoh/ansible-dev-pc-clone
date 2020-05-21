@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Royal tsx (macOS)
+    - name: Ensure Royal tsx
       homebrew_cask:
         name: royal-tsx

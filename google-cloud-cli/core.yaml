@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Install google cloud sdk
+    - name: Ensure google cloud sdk
       register: gcloud_cli_installed
       homebrew_cask:
         name: google-cloud-sdk

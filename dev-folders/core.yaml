@@ -3,17 +3,17 @@
   connection: local
 
   tasks:
-    - name: Create dev folder
+    - name: Ensure dev folder
       file:
         path: ~/dev
         state: directory
         mode: 0700
-    - name: Create clones folder
+    - name: Ensure clones folder
       file:
         path: ~/dev/clones
         state: directory
         mode: 0700
-    - name: Create cruft folder
+    - name: Ensure cruft folder
       file:
         path: ~/dev/cruft
         state: directory

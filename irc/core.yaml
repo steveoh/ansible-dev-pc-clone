@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Homebrew package
+    - name: Ensure irssi client
       homebrew:
         name: irssi

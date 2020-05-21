@@ -8,20 +8,20 @@
       - "3.1"
 
   tasks:
-    - name: Install .NET SDK installer
+    - name: Ensure .NET SDK installer
       get_url:
         url: https://dot.net/v1/dotnet-install.sh
         dest: /usr/local/bin/dotnet-install
         mode: 0755
 
-    - name: Install .NET SDK (macOS)
+    - name: Ensure .NET SDK
       shell: dotnet-install -c {{ item }}
       register: dotnet_sdk_installed_mac
       loop: "{{ dotnet_versions }}"
       args:
         creates: ~/.dotnet/sdk/{{ item }}.*/.version
 
-    - name: Create shortcut to dotnet
+    - name: Ensure dotnet shortcut
       file:
         path: /usr/local/bin/dotnet
         src: ~/.dotnet/dotnet
@@ -33,7 +33,7 @@
       command: dotnet new
       when: dotnet_sdk_installed_mac.changed
 
-    - name: Update environment for .NET Core
+    - name: Ensure environment variables
       blockinfile:
         path: ~/.zshrc
         marker: "### {mark} Ansible managed: .NET Core enhancement"

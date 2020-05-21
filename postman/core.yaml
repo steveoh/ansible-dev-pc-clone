@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Postman (macOS)
+    - name: Ensure Postman
       homebrew_cask:
         name: postman

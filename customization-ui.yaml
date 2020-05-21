@@ -1,128 +1,128 @@
 
-- name: Core OS customization (macOS)
+- name: Core OS customization
   hosts: 127.0.0.1
   connection: local
 
   tasks:
 
-    - name: Ensure software updates daily (macOS)
+    - name: Ensure software updates daily
       shell:
         cmd: "defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1"
 
-    - name: Increase sound quality for Bluetooth headphones/headsets (macOS)
+    - name: Increase sound quality for Bluetooth headphones/headsets
       shell:
         cmd: "defaults write com.apple.BluetoothAudioAgent 'Apple Bitpool Min (editable)' -int 40"
 
-    - name: Require password after sleep or screen saver begins (macOS)
+    - name: Require password after sleep or screen saver begins
       shell:
         cmd: "defaults write com.apple.screensaver askForPassword -int 1"
 
-    - name: Require password immediately after sleep or screen saver begins (macOS)
+    - name: Require password immediately after sleep or screen saver begins
       shell:
         cmd: "defaults write com.apple.screensaver askForPasswordDelay -int 0"
 
-    - name: Save screenshots to desktop (macOS)
+    - name: Save screenshots to desktop
       shell:
         cmd: "defaults write com.apple.screencapture location -string '${HOME}/Desktop'"
 
-    - name: Save screenshots as png (macOS)
+    - name: Save screenshots as png
       shell:
         cmd: "defaults write com.apple.screencapture type -string 'png'"
 
-    - name: Change new window target (macOS)
+    - name: Change new window target
       shell:
         cmd: "defaults write com.apple.finder NewWindowTarget -string 'PfDe'"
 
-    - name: Set new window to dev (macOS)
+    - name: Set new window to dev
       shell:
         cmd: "defaults write com.apple.finder NewWindowTargetPath -string 'file://${HOME}/dev/'"
 
-    - name: Show hidden files (macOS)
+    - name: Show hidden files
       shell:
         cmd: "defaults write com.apple.finder AppleShowAllFiles -bool true"
 
-    - name: Show file extensions (macOS)
+    - name: Show file extensions
       shell:
         cmd: "defaults write NSGlobalDomain AppleShowAllExtensions -bool true"
 
-    - name: Search current folder (macOS)
+    - name: Search current folder
       shell:
         cmd: "defaults write com.apple.finder FXDefaultSearchScope -string 'SCcf'"
 
-    - name: No warning for extension change (macOS)
+    - name: No warning for extension change
       shell:
         cmd: "defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false"
 
-    - name: Skip DS_Store creation (macOS)
+    - name: Skip DS_Store creation
       shell:
         cmd: "defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true"
 
-    - name: Skip DS_Store creation usb (macOS)
+    - name: Skip DS_Store creation usb
       shell:
         cmd: "defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true"
 
-    - name: Disable trash empty warning (macOS)
+    - name: Disable trash empty warning
       shell:
         cmd: "defaults write com.apple.finder WarnOnEmptyTrash -bool false"
 
-    - name: Empty trash securely (macOS)
+    - name: Empty trash securely
       shell:
         cmd: "defaults write com.apple.finder EmptyTrashSecurely -bool true"
 
-    - name: Disable the Are you sure you want to open this application? dialog (macOS)
+    - name: Disable the Are you sure you want to open this application? dialog
       shell:
         cmd: "defaults write com.apple.LaunchServices LSQuarantine -bool false"
 
-    - name:  Disable automatic period substitution as it’s annoying when typing code (macOS)
+    - name:  Disable automatic period substitution as it’s annoying when typing code
       shell:
         cmd: "defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false"
 
-    - name: Disable press-and-hold for keys in favor of key repeat (macOS)
+    - name: Disable press-and-hold for keys in favor of key repeat
       shell:
         cmd: "defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false"
 
-    - name: Key Repeat (macOS)
+    - name: Key Repeat
       shell:
         cmd: "defaults write NSGlobalDomain KeyRepeat -int 2"
 
-    - name: Faster repeat rate (macOS)
+    - name: Faster repeat rate
       shell:
         cmd: "defaults write NSGlobalDomain InitialKeyRepeat -int 25"
 
-    - name: Disable machine sleep while charging (macOS)
+    - name: Disable machine sleep while charging
       become: yes
       shell:
         cmd: "pmset -c sleep 0"
 
-    - name: Disable dashboard (macOS)
+    - name: Disable dashboard
       shell:
         cmd: "defaults write com.apple.dashboard mcx-disabled -bool true"
 
-    - name: Speed up mouse (macOS)
+    - name: Speed up mouse
       become: yes
       shell:
         cmd: "defaults write -g com.apple.mouse.scaling -int 2.5"
 
-    - name: Auto hide dock (macOS)
+    - name: Auto hide dock
       shell:
         cmd: "defaults write com.apple.dock autohide -bool true && killall Dock"
 
-    - name: Tap to click (macOS)
+    - name: Tap to click
       shell:
         cmd: "defaults write com.apple.AppleMultitouchTrackpad Clicking 1"
 
-    - name: Three finger drag (macOS)
+    - name: Three finger drag
       shell:
         cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag 1"
 
-    - name: Horizontal Swipe Gesture (macOS)
+    - name: Horizontal Swipe Gesture
       shell:
         cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture 0"
 
-    - name: Verticle Swipe Gesture (macOS)
+    - name: Verticle Swipe Gesture
       shell:
         cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture 0"
 
-    - name: Right edge Swipe Gesture (macOS)
+    - name: Right edge Swipe Gesture
       shell:
         cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture 0"

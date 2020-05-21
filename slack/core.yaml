@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Slack Desktop (macOS)
+    - name: Ensure Slack Desktop
       homebrew_cask:
         name: slack

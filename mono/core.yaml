@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install Mono (macOS)
+    - name: Ensure Mono
       homebrew:
         name: mono

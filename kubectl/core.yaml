@@ -3,6 +3,6 @@
   connection: local
 
   tasks:
-    - name: Install kubectl
+    - name: Ensure kubectl
       homebrew:
         name: kubectl

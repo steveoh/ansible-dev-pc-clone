@@ -3,10 +3,11 @@
   connection: local
 
   tasks:
-    - name: Set global configuration
+    - name: Ensure global configuration
       copy:
         src: config
         dest: ~/.gitconfig
+
     - name: Ensure environment variables
       blockinfile:
         path: ~/.zshrc

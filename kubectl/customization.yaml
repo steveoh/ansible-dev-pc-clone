@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Add useful kubectl aliases
+    - name: Ensure kubectl aliases
       blockinfile:
         path: ~/.zshrc
         marker: "### {mark} Ansible managed: kubectl shortcuts"

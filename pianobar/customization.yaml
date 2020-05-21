@@ -13,7 +13,7 @@
         state: directory
         mode: 0700
 
-    - name: Set configuration
+    - name: Ensure configuration
       template:
         src: config.j2
         dest: ~/.config/pianobar/config
@@ -21,7 +21,7 @@
         user: env_user
         pw: env_pw
 
-    - name: Add useful pianobar aliases
+    - name: Ensure pianobar aliases
       blockinfile:
         path: ~/.zshrc
         marker: "### {mark} Ansible managed: pianobar customizations"

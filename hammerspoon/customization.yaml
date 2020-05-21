@@ -10,7 +10,7 @@
         state: directory
         mode: 0700
 
-    - name: Set configuration
+    - name: Ensure custom configuration
       copy:
         src: init.lua
         dest: ~/.hammerspoon/init.lua
