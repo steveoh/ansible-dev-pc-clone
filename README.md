@@ -19,6 +19,14 @@ This repository contains useful scripts to set up a mac development machine. The
    echo "export PATH=$HOME/Library/Python/3.7/bin:$PATH" >> ~/.zshrc
    ```
 
+1. Add secretes
+
+    ```bash
+    echo "export GITHUB_NOTIFICATIONS_TOKEN=" >> ~/.zshenv
+    echo "export ANSIBLE_PIANO_USER=" >> ~/.zshenv
+    echo "export ANSIBLE_PIANO_PW=" >> ~/.zshenv
+    ```
+
 ## Running
 
 Before running the scripts, please review `_all.yaml` and `_all_no_customization.yaml`, and comment out software you don't want installed. In particular, most folders contain `customization.yaml` files which tend to contain my personal opinions on customizations; feel free to comment out sections of those files, or ignore them entirely.
