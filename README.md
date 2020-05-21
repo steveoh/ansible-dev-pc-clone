@@ -19,7 +19,7 @@ This repository contains useful scripts to set up a mac development machine. The
    echo "export PATH=$HOME/Library/Python/3.7/bin:$PATH" >> ~/.zshrc
    ```
 
-1. Add secretes
+1. Add secrets
 
     ```bash
     echo "export GITHUB_NOTIFICATIONS_TOKEN=" >> ~/.zshenv
@@ -46,3 +46,7 @@ Since core OS packages are upgraded, it is safest to reboot the PC/VM after runn
 1. Import all used gpg keys
    - `gpg --export-secret-keys "name of key" > private.key
    - `gpg import private.key`
+
+1. Create a couple of github personal access tokens
+   - one with notification scope for vscode plugin
+   - one with repo and gis for your first git cli commit
