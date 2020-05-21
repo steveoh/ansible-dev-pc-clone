@@ -34,7 +34,20 @@
           alias zshconfig='vim ~/.zshrc'
           alias ohmyzsh='vim ~/.oh-my-zsh'
           alias home='deactivate; cd ~; clear'
-          alias sgid-index='>&2 echo "starting sgid index update" && workon gis.utah.gov && >&2 echo "switching to master branch" && git checkout master && >&2 echo "updating from remote" && git up && >&2 echo "running python" && python datatable.py
+          alias sgid-index='>&2 echo "starting sgid index update" &&
+          cd ~/dev/gis.utah.gov &&
+          source .env/bin/activate &&
+          >&2 echo "switching to master branch" &&
+          git checkout master &&
+          >&2 echo "updating from remote" &&
+          git up &&
+          >&2 echo "running python" &&
+          cd /scripts
+          python datatable.py
+          if git commit -am ":package: update sgid-index"
+          then git push
+          fi
+          >&2 echo "done" && deactivate && cd ~/'
           if git commit -am ":package: update sgid-index"
           then git push
           fi
