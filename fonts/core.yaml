@@ -5,7 +5,7 @@
   tasks:
     - name: Tap Font Cask
       homebrew_tap:
-        name: homebrew/cask-font
+        name: homebrew/cask-fonts
 
     - name: Ensure custom fonts
       homebrew_cask:
