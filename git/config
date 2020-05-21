@@ -4,6 +4,8 @@
 [core]
     editor = /usr/local/bin/vim
     autocrlf = input
+[credential]
+    helper = osxkeychain
 [push]
     default = simple
 [fetch]
