@@ -5,124 +5,211 @@
 
   tasks:
 
-    - name: Ensure software updates daily
-      shell:
-        cmd: "defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1"
+    - osx_defaults: # Ensure software updates daily
+        domain: com.apple.SoftwareUpdate
+        key: ScheduleFrequency
+        type: int
+        value: 1
+        state: present
 
-    - name: Increase sound quality for Bluetooth headphones/headsets
-      shell:
-        cmd: "defaults write com.apple.BluetoothAudioAgent 'Apple Bitpool Min (editable)' -int 40"
+    - osx_defaults: # Increase sound quality for Bluetooth headphones/headsets
+        domain: com.apple.BluetoothAudioAgent
+        key: 'Apple Bitpool Min (editable)'
+        type: int
+        value: 40
+        state: present
 
-    - name: Require password after sleep or screen saver begins
-      shell:
-        cmd: "defaults write com.apple.screensaver askForPassword -int 1"
+    - osx_defaults: # Require password after sleep or screen saver begins
+        domain: com.apple.screensaver
+        key: askForPassword
+        type: int
+        value: 1
+        state: present
 
-    - name: Require password immediately after sleep or screen saver begins
-      shell:
-        cmd: "defaults write com.apple.screensaver askForPasswordDelay -int 0"
+    - osx_defaults: # Require password immediately after sleep or screen saver begins
+        domain: com.apple.screensaver
+        key: askForPasswordDelay
+        type: int
+        value: 0
+        state: present
 
-    - name: Save screenshots to desktop
-      shell:
-        cmd: "defaults write com.apple.screencapture location -string '${HOME}/Desktop'"
+    - osx_defaults: # Save screenshots to desktop
+        domain: com.apple.screencapture
+        key: location
+        type: string
+        value: ${HOME}/Desktop
+        state: present
 
-    - name: Save screenshots as png
-      shell:
-        cmd: "defaults write com.apple.screencapture type -string 'png'"
+    - osx_defaults: # Save screenshots as png
+        domain: com.apple.screencapture
+        key: type
+        type: string
+        value: 'png'
+        state: present
 
-    - name: Change new window target
-      shell:
-        cmd: "defaults write com.apple.finder NewWindowTarget -string 'PfDe'"
+    - osx_defaults: # Change new window target
+        domain: com.apple.finder
+        key: NewWindowTarget
+        type: string
+        value: PfDe
+        state: present
 
-    - name: Set new window to dev
-      shell:
-        cmd: "defaults write com.apple.finder NewWindowTargetPath -string 'file://${HOME}/dev/'"
+    - osx_defaults: # Set new window to dev
+        domain: com.apple.finder
+        key: NewWindowTargetPath
+        type: string
+        value: file://${HOME}/dev/
+        state: present
 
-    - name: Show hidden files
-      shell:
-        cmd: "defaults write com.apple.finder AppleShowAllFiles -bool true"
+    - osx_defaults: # Show hidden files
+        domain: com.apple.finder
+        key: AppleShowAllFiles
+        type: bool
+        value: true
+        state: present
 
-    - name: Show file extensions
-      shell:
-        cmd: "defaults write NSGlobalDomain AppleShowAllExtensions -bool true"
+    - osx_defaults: # Show file extensions
+        domain: NSGlobalDomain
+        key: AppleShowAllExtensions
+        type: bool
+        value: true
+        state: present
 
-    - name: Search current folder
-      shell:
-        cmd: "defaults write com.apple.finder FXDefaultSearchScope -string 'SCcf'"
+    - osx_defaults: # Search current folder
+        domain: com.apple.finder
+        key: FXDefaultSearchScope
+        type: string
+        value: SCcf
+        state: present
 
-    - name: No warning for extension change
-      shell:
-        cmd: "defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false"
+    - osx_defaults: # No warning for extension change
+        domain: com.apple.finder
+        key: FXEnableExtensionChangeWarning
+        type: bool
+        value: false
+        state: present
 
-    - name: Skip DS_Store creation
-      shell:
-        cmd: "defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true"
+    - osx_defaults: # Skip DS_Store creation
+        domain: com.apple.desktopservices
+        key: DSDontWriteNetworkStores
+        type: bool
+        value: true
+        state: present
 
-    - name: Skip DS_Store creation usb
-      shell:
-        cmd: "defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true"
+    - osx_defaults: # Skip DS_Store creation usb
+        domain: com.apple.desktopservices
+        key: DSDontWriteUSBStores
+        type: bool
+        value: true
+        state: present
 
-    - name: Disable trash empty warning
-      shell:
-        cmd: "defaults write com.apple.finder WarnOnEmptyTrash -bool false"
+    - osx_defaults: # Disable trash empty warning
+        domain: com.apple.finder
+        key: WarnOnEmptyTrash
+        type: bool
+        value: false
+        state: present
 
-    - name: Empty trash securely
-      shell:
-        cmd: "defaults write com.apple.finder EmptyTrashSecurely -bool true"
+    - osx_defaults: # Empty trash securely
+        domain: com.apple.finder
+        key: EmptyTrashSecurely
+        type: bool
+        value: true
+        state: present
 
-    - name: Disable the Are you sure you want to open this application? dialog
-      shell:
-        cmd: "defaults write com.apple.LaunchServices LSQuarantine -bool false"
+    - osx_defaults: # Disable the Are you sure you want to open this application? dialog
+        domain: com.apple.LaunchServices
+        key: LSQuarantine
+        type: bool
+        value: false
+        state: present
 
-    - name:  Disable automatic period substitution as it’s annoying when typing code
-      shell:
-        cmd: "defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false"
+    - osx_defaults: #  Disable automatic period substitution as it’s annoying when typing code
+        domain: NSGlobalDomain
+        key: NSAutomaticPeriodSubstitutionEnabled
+        type: bool
+        value: false
+        state: present
 
-    - name: Disable press-and-hold for keys in favor of key repeat
-      shell:
-        cmd: "defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false"
+    - osx_defaults: # Disable press-and-hold for keys in favor of key repeat
+        domain: NSGlobalDomain
+        key: ApplePressAndHoldEnabled
+        type: bool
+        value: false
+        state: present
 
-    - name: Key Repeat
-      shell:
-        cmd: "defaults write NSGlobalDomain KeyRepeat -int 2"
+    - osx_defaults: # Key Repeat
+        domain: NSGlobalDomain
+        key: KeyRepeat
+        type: int
+        value: 2
+        state: present
 
-    - name: Faster repeat rate
-      shell:
-        cmd: "defaults write NSGlobalDomain InitialKeyRepeat -int 25"
+    - osx_defaults: # Faster repeat rate
+        domain: NSGlobalDomain
+        key: InitialKeyRepeat
+        type: int
+        value: 25
+        state: present
 
     - name: Disable machine sleep while charging
       become: yes
       shell:
         cmd: "pmset -c sleep 0"
 
-    - name: Disable dashboard
-      shell:
-        cmd: "defaults write com.apple.dashboard mcx-disabled -bool true"
+    - osx_defaults: # Disable dashboard
+        domain: com.apple.dashboard
+        key: mcx-disabled
+        type: bool
+        value: true
+        state: present
 
-    - name: Speed up mouse
+    - osx_defaults: # Speed up mouse
+        domain: com.apple.mouse
+        key: scaling
+        type: float
+        value: 2.5
+        state: present
       become: yes
-      shell:
-        cmd: "defaults write -g com.apple.mouse.scaling -int 2.5"
 
-    - name: Auto hide dock
-      shell:
-        cmd: "defaults write com.apple.dock autohide -bool true && killall Dock"
+    - osx_defaults: # Auto hide dock
+        domain: com.apple.dock
+        key: autohide
+        type: bool
+        value: true
+        state: present
 
-    - name: Tap to click
-      shell:
-        cmd: "defaults write com.apple.AppleMultitouchTrackpad Clicking 1"
+    - osx_defaults: # Tap to click
+        domain: com.apple.AppleMultitouchTrackpad
+        key: Clicking
+        type: int
+        value: 1
+        state: present
 
-    - name: Three finger drag
-      shell:
-        cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag 1"
+    - osx_defaults: # Three finger drag
+        domain: com.apple.AppleMultitouchTrackpad
+        key: TrackpadThreeFingerDrag
+        type: int
+        value: 1
+        state: present
 
-    - name: Horizontal Swipe Gesture
-      shell:
-        cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture 0"
+    - osx_defaults: # Horizontal Swipe Gesture
+        domain: com.apple.AppleMultitouchTrackpad
+        key: TrackpadThreeFingerHorizSwipeGesture
+        type: int
+        value: 0
+        state: present
 
-    - name: Verticle Swipe Gesture
-      shell:
-        cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture 0"
+    - osx_defaults: # Verticle Swipe Gesture
+        domain: com.apple.AppleMultitouchTrackpad
+        key: TrackpadThreeFingerVertSwipeGesture
+        type: int
+        value: 0
+        state: present
 
-    - name: Right edge Swipe Gesture
-      shell:
-        cmd: "defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture 0"
+    - osx_defaults: # Right edge Swipe Gesture
+        domain: com.apple.AppleMultitouchTrackpad
+        key: TrackpadTwoFingerFromRightEdgeSwipeGesture
+        type: int
+        value: 0
+        state: present
