@@ -7,14 +7,14 @@
       file:
         path: ~/dev
         state: directory
-        mode: 0700
+        mode: 0755
     - name: Ensure clones folder
       file:
         path: ~/dev/clones
         state: directory
-        mode: 0700
+        mode: 0755
     - name: Ensure cruft folder
       file:
         path: ~/dev/cruft
         state: directory
-        mode: 0700
+        mode: 0755
