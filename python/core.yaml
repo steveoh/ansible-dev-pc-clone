@@ -10,13 +10,3 @@
         block: |
           alias python='python3'
           export PATH=$HOME/Library/Python/3.7/bin:$PATH
-
-    - name: Ensure pyenv
-      git:
-        dest: ~/.pyenv
-        repo: https://github.com/pyenv/pyenv
-
-    - name: Ensure pyenv-virtualenv
-      git:
-        dest: ~/.pyenv/plugins/pyenv-virtualenv
-        repo: https://github.com/pyenv/pyenv-virtualenv
