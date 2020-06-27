@@ -12,6 +12,6 @@
         name: "{{ item }}"
       loop:
         - font-saucecodepro-nerd-font
-        - font-firacode-nerd-font
+        - font-fira-code-nerd-font
         - font-hasklug-nerd-font
         - font-iosevka-nerd-font

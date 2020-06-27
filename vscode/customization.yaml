@@ -35,7 +35,7 @@
         - chrmarti.regex
         - shan.code-settings-sync
         - richie5um2.vscode-sort-json
-        - mauve.terraform
+        - hashicorp.terraform
         - ms-vscode.wordcount
         - dotjoshjohnson.xml
         - slevesque.vscode-zipexplorer
