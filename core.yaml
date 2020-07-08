@@ -9,7 +9,11 @@
       homebrew:
         update_homebrew: yes
         upgrade_all: yes
-
+    
+    - name: Tap microsfot Cask
+      homebrew_tap:
+        name: microsoft/mssql-release
+        
     - name: Ensure core packages
       homebrew:
         name: "{{ item }}"
@@ -17,6 +21,8 @@
         - bat
         - htop
         - jq
+        - msodbcsql@13.1.9.2
+        - mssql-tools@14.0.6.0
 
     - name: Ensure terminal
       homebrew_cask:
