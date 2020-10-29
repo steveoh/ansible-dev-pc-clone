@@ -23,6 +23,7 @@
         - jq
         - msodbcsql@13.1.9.2
         - mssql-tools@14.0.6.0
+        - tree
 
     - name: Ensure terminal
       homebrew_cask:
