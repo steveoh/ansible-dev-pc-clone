@@ -16,11 +16,27 @@
             custom
             context
             dir
-            nvm
+            fnm
             git
             cmd_exec_time
           )
+          
+          # fnm: Node version manager
+          prompt_fnm() {
+            local fnm_prompt
+            if type fnm >/dev/null 2>&1; then
+              fnm_prompt=$(fnm current 2>/dev/null)
+              [[ "${fnm_prompt}x" == "x" || "${fnm_prompt}" == "system" ]] && return
+            elif type node >/dev/null 2>&1; then
+              fnm_prompt="$(node --version)"
+            else
+              return
+            fi
+            fnm_prompt=${fnm_prompt}
+            prompt_segment $BULLETTRAIN_NVM_BG $BULLETTRAIN_NVM_FG $BULLETTRAIN_NVM_PREFIX$fnm_prompt
+          }
 
+          # computer uptime
           prompt_uptime(){
               on=${${${(s: :)"$(uptime)"}[3]}%,}
               prompt_segment $BULLETTRAIN_TIME_BG $BULLETTRAIN_TIME_FG "[$on]"
